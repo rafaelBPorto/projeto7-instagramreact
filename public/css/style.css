@@ -147,6 +147,7 @@ body {
   color: #FFF;
   font-size: 28px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .post {
