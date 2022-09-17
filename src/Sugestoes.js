@@ -16,12 +16,12 @@ function Sugestao(props) {
 }
 export default function Sugestoes() {
 
-    const sugestao = [
-        {img:"assets/img/bad.vibes.memes.svg", nome: "bad.vibes.memes", razao: "Segue você"},
-        {img:"assets/img/chibirdart.svg", nome: "chibirdart", razao: "Segue você"},
-        {img:"assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", razao: "Novo no Instagram"},
-        {img:"assets/img/adorable_animals.svg", nome: "adorable_animals", razao: "Segue você"},
-        {img: "assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você"}
+    const sugestoes = [
+        {img:"./assets/img/bad.vibes.memes.svg", nome: "bad.vibes.memes", razao: "Segue você"},
+        {img:"./assets/img/chibirdart.svg", nome: "chibirdart", razao: "Segue você"},
+        {img:"./assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", razao: "Novo no Instagram"},
+        {img:"./assets/img/adorable_animals.svg", nome: "adorable_animals", razao: "Segue você"},
+        {img: "./assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você"}
     ]
     return (
         <div className="sugestoes">
@@ -30,7 +30,7 @@ export default function Sugestoes() {
                 <div>Ver tudo</div>
             </div>
 
-            {sugestao.map((s) => <Sugestao img={s.img} nome={s.nome} razao={s.razao} />)}
+            {sugestoes.map((s, index) => <Sugestao key= {index} img={s.img} nome={s.nome} razao={s.razao} />)}
 
         </div>
 

@@ -39,7 +39,7 @@ function Post(props) {
 }
 
 export default function Posts() {
-    const post = [
+    const posts = [
         {
             postUsuario: "meowed",
             postImgUsuario: "./assets/img/meowed.svg",
@@ -61,7 +61,8 @@ export default function Posts() {
 
     return (
         <div className="posts">
-            {post.map((p) => <Post
+            {posts.map((p, index) => <Post
+                key= {index}
                 postUsuario={p.postUsuario}
                 postImgUsuario={p.postImgUsuario}
                 postImg={p.postImg}
