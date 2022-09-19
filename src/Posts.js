@@ -4,6 +4,7 @@ function Post(props) {
     const [salvarPost, setSalvarPost] = React.useState("bookmark-outline")
     const [curtirPost, setCurtirPost] = React.useState("heart-outline")
     const [cor, setCor] = React.useState("black")
+    const [like, setLike] = React.useState(props.curtidaQuantidade)
 
     function postSalvo() {
         setSalvarPost("bookmark")
@@ -13,9 +14,11 @@ function Post(props) {
         if (cor === "black") {
             setCurtirPost("heart")
             setCor("red")
+            setLike(like + 1)
         }else{
             setCurtirPost("heart-outline")
-            setCor("black") 
+            setCor("black")
+            setLike(like - 1) 
         }
 
     }
@@ -51,7 +54,7 @@ function Post(props) {
                 <div className="curtidas">
                     <img src={props.curtidaImg} />
                     <div className="texto">
-                        Curtido por <strong>{props.curtidaUsuario}</strong> e <strong>outras {props.curtidaQuantidade} pessoas</strong>
+                        Curtido por <strong>{props.curtidaUsuario}</strong> e <strong>outras {like} pessoas</strong>
                     </div>
                 </div>
             </div>
