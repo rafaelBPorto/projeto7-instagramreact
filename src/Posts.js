@@ -7,7 +7,12 @@ function Post(props) {
     const [like, setLike] = React.useState(props.curtidaQuantidade)
 
     function postSalvo() {
-        setSalvarPost("bookmark")
+        if (salvarPost==="bookmark-outline"){
+            setSalvarPost("bookmark")
+        }else{
+            setSalvarPost("bookmark-outline")
+        }
+        
     }
 
     function curtir() {
