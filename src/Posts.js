@@ -1,4 +1,25 @@
+import React from "react"
 function Post(props) {
+
+    const [salvarPost, setSalvarPost] = React.useState("bookmark-outline")
+    const [curtirPost, setCurtirPost] = React.useState("heart-outline")
+    const [cor, setCor] = React.useState("black")
+
+    function postSalvo() {
+        setSalvarPost("bookmark")
+    }
+
+    function curtir() {
+        if (cor === "black") {
+            setCurtirPost("heart")
+            setCor("red")
+        }else{
+            setCurtirPost("heart-outline")
+            setCor("black") 
+        }
+
+    }
+
     return (
         <div className="post">
             <div className="topo">
@@ -12,23 +33,23 @@ function Post(props) {
             </div>
 
             <div className="conteudo">
-                <img src={props.postImg} />
+                <img src={props.postImg} onClick={curtir} />
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={curtirPost} style={{ color: `${cor}` }} onClick={curtir}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={salvarPost} onClick={postSalvo}></ion-icon>
                     </div>
                 </div>
 
                 <div className="curtidas">
-                    <img src="assets/img/respondeai.svg" />
+                    <img src={props.curtidaImg} />
                     <div className="texto">
                         Curtido por <strong>{props.curtidaUsuario}</strong> e <strong>outras {props.curtidaQuantidade} pessoas</strong>
                     </div>
@@ -53,8 +74,8 @@ export default function Posts() {
             postUsuario: "barked",
             postImgUsuario: "./assets/img/barked.svg",
             postImg: "./assets/img/dog.svg",
-            curtidaUsuario: "./assets/img/adorable_animals.svg",
-            curtidaImg: "adorable_animals",
+            curtidaUsuario: "adorable_animals",
+            curtidaImg: "./assets/img/adorable_animals.svg",
             curtidaQuantidade: 99159
         },
     ]
@@ -62,7 +83,7 @@ export default function Posts() {
     return (
         <div className="posts">
             {posts.map((p, index) => <Post
-                key= {index}
+                key={index}
                 postUsuario={p.postUsuario}
                 postImgUsuario={p.postImgUsuario}
                 postImg={p.postImg}

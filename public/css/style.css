@@ -306,6 +306,10 @@ body {
   cursor: pointer;
 }
 
+.vermelho {
+  color: red;
+}
+
 .logo-mobile, .instagram-mobile {
   display: none !important;
 }
@@ -324,6 +328,8 @@ body {
     width: 100%;
   }
 }
+
+
 
 @media (max-width: 614px) {
   .corpo {
